@@ -43,9 +43,9 @@ class RabbitConfig {
     }
 
     @Bean
-    fun simpleQueueDlqBinding(simpleQueue: Queue, simpleExchange: Exchange): Binding {
+    fun simpleQueueDlqBinding(simpleQueueDlq: Queue, simpleExchange: Exchange): Binding {
         return BindingBuilder
-            .bind(simpleQueue)
+            .bind(simpleQueueDlq)
             .to(simpleExchange)
             .with(DLQ_ROUTING_KEY)
             .noargs()
